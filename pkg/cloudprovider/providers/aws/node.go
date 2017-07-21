@@ -41,7 +41,7 @@ func (c Cloud) GetNodeData() (model.NodeData, error) {
 			data.KubeVersion = *o.OutputValue
 		}
 		if *o.OutputKey == labelsOutputKey {
-			data.Labels = util.KVsToLabels(strings.Split(*o.OutputValue, "="))
+			data.Labels = util.KVsToStringMap(strings.Split(*o.OutputValue, "="))
 		}
 	}
 

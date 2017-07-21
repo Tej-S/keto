@@ -539,6 +539,7 @@ outer:
 		}
 
 		p.Labels = getStackLabels(s)
+		p.Taints = getStackTaints(s)
 		pools = append(pools, p)
 	}
 	return pools, nil
@@ -590,6 +591,7 @@ outer:
 		}
 
 		p.Labels = getStackLabels(s)
+		p.Taints = getStackTaints(s)
 		pools = append(pools, p)
 	}
 	return pools, nil

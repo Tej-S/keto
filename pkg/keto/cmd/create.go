@@ -125,7 +125,7 @@ func createClusterCmdFunc(c *cobra.Command, args []string) error {
 	if err != nil {
 		return err
 	}
-	cluster.Labels = util.KVsToLabels(labels)
+	cluster.Labels = util.KVsToStringMap(labels)
 
 	p, err := makeMasterPool("master", name, *c)
 	if err != nil {
@@ -293,7 +293,7 @@ func makeMasterPool(name, clusterName string, c cobra.Command) (model.MasterPool
 	if err != nil {
 		return p, err
 	}
-	p.Labels = util.KVsToLabels(labels)
+	p.Labels = util.KVsToStringMap(labels)
 
 	p.Name = name
 	p.ClusterName = clusterName
@@ -382,7 +382,7 @@ func makeComputePool(name, clusterName string, c cobra.Command) (model.ComputePo
 	if err != nil {
 		return p, err
 	}
-	p.Labels = util.KVsToLabels(labels)
+	p.Labels = util.KVsToStringMap(labels)
 
 	p.Name = name
 	p.ClusterName = clusterName
